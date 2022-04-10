@@ -1,6 +1,7 @@
 APP_RELATIVE_PATH=$(shell a=`basename $$PWD` && cd .. && b=`basename $$PWD` && echo $$b/$$a)
 API_PROTO_FILES=$(shell cd ../../../api/$(APP_RELATIVE_PATH) && find . -name *.proto)
 INTERNAL_PROTO_FILES=$(shell find internal -name *.proto)
+APP_BIN_NAME=$(shell a=`basename $$PWD` && cd .. && b=`basename $$PWD` && echo $$b\_$$a)
 
 .PHONY: proto
 # generate internal proto struct
@@ -37,3 +38,8 @@ wire:
 .PHONY: api
 # generate api proto
 api: grpc http
+
+.PHONY: build 
+# build server 
+build: 
+	echo "will build:" && pwd && echo $(APP_BIN_NAME) && mkdir -p bin && go build -o bin/$(APP_BIN_NAME) ./cmd/server
