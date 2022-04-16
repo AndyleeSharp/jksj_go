@@ -24,8 +24,14 @@ func main() {
 
 	//观察长时间没有请求之后重新有请求统计是否正确
 
-	<-time.After(time.Millisecond * 100 * 30)
+	<-time.After(time.Millisecond * 100 * 50)
 	fmt.Println("after 3s", win.Sum())
 	win.Add(666)
+	fmt.Println(win.Sum(), win)
+	for i := 0; i < 10; i++ {
+		win.Add(i + 1)
+		fmt.Println(win)
+		<-time.After(time.Millisecond * 100)
+	}
 	fmt.Println(win.Sum(), win)
 }
