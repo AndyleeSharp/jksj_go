@@ -92,8 +92,8 @@ func (w *Window) Add(val int) {
 		}
 		w.resetBuckets(start, timespan)
 		w.offset = end
-		w.lastAppendTime = time.Now()
-		//w.lastAppendTime = w.lastAppendTime.Add(time.Duration(timespan * int(w.bucketDuration)))
+		//w.lastAppendTime = time.Now()
+		w.lastAppendTime = w.lastAppendTime.Add(time.Duration(timespan * int(w.bucketDuration)))
 	}
 	w.buckets[w.offset].Add(int64(val))
 
