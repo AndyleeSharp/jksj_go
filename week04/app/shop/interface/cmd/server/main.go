@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"syscall"
 
 	"github.com/go-kratos/kratos/v2"
@@ -19,6 +20,11 @@ func newApp(hs *http.Server, gs *grpc.Server) *kratos.App {
 	)
 }
 func main() {
+	var a []int
+	fmt.Println(a == nil)
+	a = append(a, 1)
+	fmt.Println(a)
+
 	app, err := initApp()
 	if err != nil {
 		panic(err)
