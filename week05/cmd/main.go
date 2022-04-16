@@ -22,8 +22,7 @@ func main() {
 		<-time.After(time.Millisecond * 100)
 	}
 
-	//观察长时间没有请求之后重新有请求统计是否正确
-
+	//观察长时间没有请求之后重新有请求统计是否正确（aegis中的计算lastAppendTime时间有bug，已提pr）
 	<-time.After(time.Millisecond * 100 * 50)
 	fmt.Println("after 3s", win.Sum())
 	win.Add(666)
