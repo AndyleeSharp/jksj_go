@@ -1,0 +1,13 @@
+github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
+github.com/garyburd/redigo v1.6.3 h1:HCeeRluvAgMusMomi1+6Y5dmFOdYV/JzoRrrbFlkGIc=
+github.com/garyburd/redigo v1.6.3/go.mod h1:rTb6epsqigu3kYKBnaF028A7Tf/Aw5s0cqA47doKKqw=
+github.com/hhxsv5/go-redis-memory-analysis v2.0.6+incompatible h1:r1a2Ys7nTOUcHuwxu8ZXjV5z+DRNBj11yF41uneo3io=
+github.com/hhxsv5/go-redis-memory-analysis v2.0.6+incompatible/go.mod h1:yyXEBx9/f2pCb+Xa06rPAzwXqlP7kWh39sktUlTdIoM=
+github.com/mediocregopher/radix/v4 v4.1.0 h1:z96wBJkyK/hOrAV+qC8AXk0QsbwZEtx5+8ovjnXELuA=
+github.com/mediocregopher/radix/v4 v4.1.0/go.mod h1:ajchozX/6ELmydxWeWM6xCFHVpZ4+67LXHOTOVR0nCE=
+github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
+github.com/stretchr/testify v1.2.2/go.mod h1:a8OnRcib4nhh0OaRAV+Yts87kKdq0PP7pXfy6kDkUVs=
+github.com/tilinna/clock v1.0.2 h1:6BO2tyAC9JbPExKH/z9zl44FLu1lImh3nDNKA0kgrkI=
+github.com/tilinna/clock v1.0.2/go.mod h1:ZsP7BcY7sEEz7ktc0IVy8Us6boDrK8VradlKRUGfOao=
+github.com/vrischmann/rdbtools v0.0.0-20141203205512-cd9eb17adda8 h1:4HXww/LoHLywgX9Kp2OfXuMqCv4QfTUnSybIcfSLIZI=
+github.com/vrischmann/rdbtools v0.0.0-20141203205512-cd9eb17adda8/go.mod h1:eTDX8ZTtAZ6Hr/Rmfl646+tsY8wxunJ3zHnHjDjjG48=
