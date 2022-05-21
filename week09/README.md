@@ -1,4 +1,4 @@
-### 总结几种 socket 粘包的解包方式：fix length/delimiter based/length field based frame decoder。尝试举例其应用。
+#### 总结几种 socket 粘包的解包方式：fix length/delimiter based/length field based frame decoder。尝试举例其应用。
 
 ### fix length:
 定长数据包，每次接收或发送约定好的固定长度数据，应用比较少。
