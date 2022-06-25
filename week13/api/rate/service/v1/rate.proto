@@ -1,0 +1,16 @@
+syntax = "proto3";
+package rate.service.v1;
+option go_package = "api/rate/service/v1;v1";
+
+service RateService {
+  rpc GetGoodsRate(GetRateRequest) returns (GetRateReply) {
+
+  }
+}
+
+message GetRateRequest {
+  int64 id = 1;
+}
+message GetRateReply {
+  int32 rate = 1;//商品评分
+}

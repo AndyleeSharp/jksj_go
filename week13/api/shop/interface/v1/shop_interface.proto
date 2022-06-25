@@ -1,0 +1,21 @@
+syntax = "proto3";
+package shop.interface.v1;
+import "google/api/annotations.proto";
+import "goods/service/v1/goods.proto";
+option go_package = "api/shop/interface/v1;v1";
+
+service ShopInterface {
+    rpc GetGoods(GetGoodsRequest) returns (GetGoodsReply) {
+        option (google.api.http) = {
+            get: "/v1/shop/{id}"
+        };
+    }
+}
+
+message GetGoodsRequest {
+    int64 id = 1;
+}
+message GetGoodsReply {
+    goods.service.v1.Goods goods = 1;//商品信息
+    int32 rate = 2;//商品评分
+}

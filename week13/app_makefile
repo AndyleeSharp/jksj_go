@@ -1,0 +1,48 @@
+APP_RELATIVE_PATH=$(shell a=`basename $$PWD` && cd .. && b=`basename $$PWD` && echo $$b/$$a)
+API_PROTO_FILES=$(shell cd ../../../api/$(APP_RELATIVE_PATH) && find . -name *.proto)
+INTERNAL_PROTO_FILES=$(shell find internal -name *.proto)
+APP_BIN_NAME=$(shell a=`basename $$PWD` && cd .. && b=`basename $$PWD` && echo $$b\_$$a)
+
+.PHONY: proto
+# generate internal proto struct
+proto:
+	protoc --proto_path=. \
+	       --proto_path=../../ \
+           --proto_path=../../../third_party \
+           --go_out=paths=source_relative:. \
+           $(INTERNAL_PROTO_FILES)
+
+
+.PHONY: http
+# generate http code
+http:
+	cd ../../../api/$(APP_RELATIVE_PATH) && protoc --proto_path=. \
+	       --proto_path=../../ \
+           --proto_path=../../../third_party \
+           --go_out=paths=source_relative:. \
+           --go-http_out=paths=source_relative:. \
+           $(API_PROTO_FILES)
+
+.PHONY: grpc
+# generate grpc code
+grpc:
+	 cd ../../../api/$(APP_RELATIVE_PATH) && protoc --proto_path=. \
+	       --proto_path=../../ \
+           --proto_path=../../../third_party \
+           --go_out=paths=source_relative:. \
+           --go-grpc_out=paths=source_relative:. \
+           $(API_PROTO_FILES)
+
+.PHONY: wire
+# generate wire
+wire:
+	cd cmd/server && wire
+
+.PHONY: api
+# generate api proto
+api: grpc http
+
+.PHONY: build 
+# build server 
+build: 
+	echo "will build:" && pwd && echo $(APP_BIN_NAME) && mkdir -p bin && go build -o bin/$(APP_BIN_NAME) ./cmd/server
